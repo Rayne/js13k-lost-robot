@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+"$(dirname "$0")/../tools/svg2map/bin/svg2map" "${@}"

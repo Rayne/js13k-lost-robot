@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+
+set -eux
+
+ROOT="$(dirname "$(dirname "$0")")"
+ID="$(date '+%Y-%m-%d %H:%M:%S')"
+DEST="$ROOT/build/$ID"
+
+PATH="$ROOT/node_modules/.bin:$PATH"
+
+cd "$ROOT"
+
+[[ -d "build" ]] || mkdir "build"
+mkdir "$DEST"
+
+minify_js() {
+  local from="$1"
+  local to="$2"
+  terser --compress --mangle -o "$DEST/$to" -- "$from"
+}
+
+# App
+html-minifier \
+  --collapse-whitespace \
+  --remove-comments \
+  --remove-optional-tags \
+  --remove-redundant-attributes \
+  --remove-script-type-attributes \
+  --remove-tag-whitespace \
+  --use-short-doctype \
+  --minify-css true \
+  --minify-js true \
+  -o "$DEST/index.html" public/index.html
+
+mkdir "$DEST/assets"
+
+html-minifier \
+  --collapse-whitespace \
+  --remove-comments \
+  --remove-optional-tags \
+  --remove-redundant-attributes \
+  --remove-script-type-attributes \
+  --remove-tag-whitespace \
+  --use-short-doctype \
+  --minify-css '{ "level": 2 }' \
+  --minify-js true \
+  -o  "$DEST/assets/style.css" public/assets/style.css
+
+mkdir "$DEST/src"
+
+# /src/app.js
+echo "PWD IS $(pwd)"
+rollup public/src/app.js --format iife --file "$DEST/src/app.tmp.js"
+minify_js "$DEST/src/app.tmp.js" "src/app.js"
+rm "$DEST/src/app.tmp.js"
+
+# Third Party
+mkdir "$DEST/vendor"
+minify_js public/vendor/SAT.js vendor/SAT.js
+minify_js public/vendor/ZzFX.micro.js vendor/ZzFX.micro.js
+
+cd "$DEST"
+zip -r9 "../$ID.zip" ./*
+
+echo
+echo "Built: $ID.zip"

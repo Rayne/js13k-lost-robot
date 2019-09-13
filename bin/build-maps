@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -eu
+shopt -s nullglob
+
+cd "$(dirname "$0")"
+
+for svg in ../data/maps/*.svg; do
+    echo "Convert $svg"
+    ./svg2map "$svg" "${svg:0:-4}.json"
+done

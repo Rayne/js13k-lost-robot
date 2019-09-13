@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "kontra": "^6.4.0",
+    "sat": "^0.7.1"
+  },
+  "devDependencies": {
+    "html-minifier": "^4.0.0",
+    "rollup": "^1.20.3",
+    "terser": "^4.2.0"
+  }
+}

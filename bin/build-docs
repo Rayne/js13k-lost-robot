@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -eux
+
+cd "$(dirname "$0")/.."
+
+[[ -d build ]] || mkdir build
+pandoc -f commonmark -t html --css pandoc.css -o build/CHANGELOG.html docs/CHANGELOG.md
+cp docs/pandoc.css build
