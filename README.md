@@ -33,3 +33,11 @@ npm install
 - [SVG MAP Format and Workflow](docs/MAP_FORMAT_SVG.md)
 
 - [JSON MAP Format](docs/MAP_FORMAT_JSON.md)
+
+## Libraries
+
+- [Kontra](https://github.com/straker/kontra)
+
+- [SAT](https://github.com/jriecken/sat-js)
+
+- [ZzFX](https://github.com/KilledByAPixel/ZzFX)
