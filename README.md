@@ -28,8 +28,8 @@ npm install
 ./bin/build
 ```
 
-More details will be available later.
-
 ## Build Maps
 
-Workflow documentation and `svg2map` software will be added later.
+- [SVG MAP Format and Workflow](docs/MAP_FORMAT_SVG.md)
+
+- [JSON MAP Format](docs/MAP_FORMAT_JSON.md)

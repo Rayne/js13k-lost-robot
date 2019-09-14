@@ -1,0 +1,35 @@
+#!/usr/bin/env php
+<?php
+
+namespace App;
+
+use App\Map\Map;
+use Throwable;
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+if ($argc != 3) {
+    fwrite(STDERR, "Expected two arguments: IN_SVG_FILE OUT_JSON_FILE\n");
+    exit(1);
+}
+
+$fileIn = $argv[1];
+$fileOut = $argv[2];
+
+if (!is_readable($fileIn)) {
+    fwrite(STDERR, 'File not found: ' . $fileIn . "\n");
+    exit(2);
+}
+
+try {
+    $map = new Map();
+    $map->loadFromSvgFile($fileIn);
+    $map->saveToMapFile($fileOut);
+
+    echo "\n";
+    echo "SUCCESS: Wrote map to $fileOut\n";
+} catch (Throwable $t) {
+    echo "\n";
+    fwrite(STDERR, 'ERROR: ' . $t->getMessage() . "\n");
+    exit(3);
+}
