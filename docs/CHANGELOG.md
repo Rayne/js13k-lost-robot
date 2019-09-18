@@ -4,6 +4,8 @@
 
 - Fixed missing turbo effect when moving backwards and turning left
 
+- Fixed unexpected rotation when pressing LEFT + RIGHT at the same time (Easy Mode)
+
 ## Release for JS13K GAMES
 
 - Added support for Microsoft Edge
