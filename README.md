@@ -40,10 +40,10 @@ Fortunately, the remote interface is working as expected.
 
 ### Build JS13K Release
 
-Please switch to the [`js13k` branch](tree/js13k) for more information.
+Please switch to the `js13k` branch for more information.
 The submitted build is available at `/build/2019-09-13 00:09:13 JS13K.zip` (13000 bytes),
 playable at [js13kgames.com](https://2019.js13kgames.com/entries/lost-robot)
-and tagged with [`js13k-final`](tree/js13k-final).
+and tagged with `js13k-final`.
 
 ### Build Maps
 
