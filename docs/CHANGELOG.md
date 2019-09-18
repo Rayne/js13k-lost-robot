@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Unreleased
+
+- Fixed missing turbo effect when moving backwards and turning left
+
 ## Release for JS13K GAMES
 
 - Added support for Microsoft Edge

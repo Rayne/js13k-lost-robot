@@ -168,6 +168,7 @@ let createRobot = function () {
 
                 // Move backward + left.
                 else if (leftAcceleration === 0 && rightAcceleration < 0) {
+                    isMoving = true;
                     this.polygon.setAngle(this.polygon.angle + AM.deg2rad(rotationPerFrame));
                     this.polygon.pos.sub(direction.multiply(multRotDirection));
                 }
