@@ -5,8 +5,7 @@
  * please view the LICENSE file that was distributed with this source code.
  */
 
-import {Sprite} from '../../vendor/kontra/kontra.mjs';
-import {keyPressed as kontra_keyPressed} from "../../vendor/kontra/kontra.mjs";
+import {Sprite, keyPressed as kontra_keyPressed} from '../../node_modules/kontra/kontra.mjs';
 import {AM} from './math.js';
 import {DistanceSensor} from "./sensors.js";
 

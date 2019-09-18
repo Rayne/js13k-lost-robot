@@ -5,7 +5,7 @@ import {
     getCanvas as kontra_getCanvas,
     getContext as kontra_getContext,
     GameLoop as kontra_GameLoop,
-} from '../../vendor/kontra/kontra.mjs';
+} from '../../node_modules/kontra/kontra.mjs';
 import {createRobot} from "./robot.js";
 import {SlidingMean} from "./SlidingMean.js";
 import {AM as AM} from "./math.js";

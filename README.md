@@ -15,20 +15,37 @@ Fortunately, the remote interface is working as expected.
 
 - Keyboard (there are no touch controls)
 
-## Build App
+## Workflow
+
+### Development
+
+1.  Install the dependencies
+
+    ```
+    npm install
+    ```
+
+2.  Run a webserver that is publishing the project root
+    to be able to load files from `/node_modules`
+    or build the application
+
+3.  Open `/public/index.html` with a browser,
+    e.g. Chromium or Firefox
+
+### Build App
 
 ```
-# The app uses as gutted Kontra.js version.
-git clone --single-branch --branch custom-js13k-build https://github.com/Rayne/kontra.git vendor/kontra
-
-# NPM packages are only needed for building the ZIP file.
-npm install
-
-# Builds the ZIP file.
 ./bin/build
 ```
 
-## Build Maps
+### Build JS13K Release
+
+Please switch to the [`js13k` branch](tree/js13k) for more information.
+The submitted build is available at `/build/2019-09-13 00:09:13 JS13K.zip` (13000 bytes),
+playable at [js13kgames.com](https://2019.js13kgames.com/entries/lost-robot)
+and tagged with [`js13k-final`](tree/js13k-final).
+
+### Build Maps
 
 - [SVG MAP Format and Workflow](docs/MAP_FORMAT_SVG.md)
 

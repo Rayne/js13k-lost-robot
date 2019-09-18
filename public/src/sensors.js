@@ -5,7 +5,7 @@
  * please view the LICENSE file that was distributed with this source code.
  */
 
-import {Sprite} from "../../vendor/kontra/kontra.mjs";
+import {Sprite} from "../../node_modules/kontra/kontra.mjs";
 import {AM} from "./math.js";
 
 /**
