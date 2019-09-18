@@ -102,10 +102,10 @@ let createRobot = function () {
                             leftAcceleration = -1;
                             rightAcceleration = -1;
                         }
-                    } else if (kontra_keyPressed('left')) {
+                    } else if (left && !right) {
                         leftAcceleration = -1;
                         rightAcceleration = 1;
-                    } else if (kontra_keyPressed('right')) {
+                    } else if (!left && right) {
                         leftAcceleration = 1;
                         rightAcceleration = -1;
                     }
