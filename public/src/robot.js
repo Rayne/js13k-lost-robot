@@ -8,6 +8,7 @@
 import {Sprite, keyPressed as kontra_keyPressed} from '../../node_modules/kontra/kontra.mjs';
 import {AM} from './math.js';
 import {DistanceSensor} from "./sensors.js";
+import * as Input from './Input/Input.js';
 
 let createRobot = function () {
     let robot = Sprite({
@@ -28,7 +29,7 @@ let createRobot = function () {
             new SAT.Vector(40, -17.5),
             new SAT.Vector(0, -20),
         ]),
-        update: function () {
+        update: function (controls) {
             if (this.disabled) {
                 return;
             }
@@ -38,7 +39,7 @@ let createRobot = function () {
             // Toggle camera mode.
             {
                 let app = document.APP;
-                let cameraKeyDown = kontra_keyPressed('c');
+                let cameraKeyDown = controls[Input.CAMERA];
 
                 if (cameraKeyDown && !this._cameraKeyDown) {
                     app.relative_camera_enabled = !app.relative_camera_enabled;
@@ -51,7 +52,7 @@ let createRobot = function () {
             // Doesn't really belong to this class,
             // but we are now handling all keys here due to a lack of time for a proper refactoring.
             {
-                if (kontra_keyPressed('esc')) {
+                if (controls[Input.PAUSE]) {
                     document.APP.showLevelSelect();
                     return;
                 }
@@ -62,11 +63,11 @@ let createRobot = function () {
                 let direction = new AM.Vector2D(1, 0).rotateRad(-this.polygon.angle);
 
                 // TODO Map XBOX analog sticks to wheels (one wheel per stick).
-                let turbo = kontra_keyPressed('t') || kontra_keyPressed('space');
-                let leftPlus = kontra_keyPressed('w');
-                let leftMinus = kontra_keyPressed('s');
-                let rightPlus = kontra_keyPressed('i');
-                let rightMinus = kontra_keyPressed('k');
+                let turbo = controls[Input.TURBO];
+                let leftPlus = controls[Input.WHEEL_LEFT_PLUS];
+                let leftMinus = controls[Input.WHEEL_LEFT_MINUS];
+                let rightPlus = controls[Input.WHEEL_RIGHT_PLUS];
+                let rightMinus = controls[Input.WHEEL_RIGHT_MINUS];
 
                 this.isTurbo = turbo;
 
@@ -75,10 +76,10 @@ let createRobot = function () {
 
                 // Easy mode.
                 {
-                    let up = kontra_keyPressed('up');
-                    let down = kontra_keyPressed('down');
-                    let left = kontra_keyPressed('left');
-                    let right = kontra_keyPressed('right');
+                    let up = controls[Input.EASY_UP];
+                    let down = controls[Input.EASY_DOWN];
+                    let left = controls[Input.EASY_LEFT];
+                    let right = controls[Input.EASY_RIGHT];
 
                     if (up && !down) {
                         if (left && !right) {

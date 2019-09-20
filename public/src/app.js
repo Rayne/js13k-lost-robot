@@ -11,6 +11,10 @@ import {SlidingMean} from "./SlidingMean.js";
 import {AM as AM} from "./math.js";
 import {Map} from "./Map.js"
 import {format_time, format_points, pad_left} from "./utils.js"
+import {MultiTouchInput} from "./Input/MultiTouchInput.js";
+import {UserInput} from "./Input/Input.js";
+import {TouchToKeyboard} from "./Input/TouchToKeyboard.js";
+import {Log} from "./Log.js";
 
 /**
  * Mapping pipeline:
@@ -48,7 +52,8 @@ let APP = {
     relative_camera_enabled: true,
     showLevelSelect() {
         showLevelSelectScreen();
-    }
+    },
+    touch2keys: {},
 };
 
 // Register global variable.
@@ -59,6 +64,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     kontra_init();
     kontra_initKeys();
+
+    let touchToKeyboard = new TouchToKeyboard();
 
     let rememberedPoints = [];
     let rememberedPointsPos = 0;
@@ -137,7 +144,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Configure the debug menu and start button.
+    let multiTouchInput = new MultiTouchInput(kontra_getCanvas());
+
+// Configure the debug menu and start button.
     {
         let d = document;
 
@@ -244,6 +253,8 @@ document.addEventListener('DOMContentLoaded', function () {
             updateCounter += 1;
             pointLossCountdown -= 1 / 60;
 
+            touchToKeyboard.update(multiTouchInput);
+
             map.doors.forEach(door => door.update());
 
             // Update robot position and collision handling.
@@ -251,7 +262,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 let oldPos = robot.polygon.pos.clone();
                 let oldAngle = robot.polygon.angle;
 
-                robot.update();
+                let userInput = new UserInput(); // TODO Store in robot or global.
+                userInput.update();
+                robot.update(userInput.state);
 
                 let obstacles = map.obstacles.obstacles.slice().concat(map.doors);
                 let collisionOccured = false;
@@ -343,6 +356,8 @@ document.addEventListener('DOMContentLoaded', function () {
             if (robot.disabled) {
                 transparency += 1 / (60 * 2); // Needs two seconds at 60 UPS.
             }
+
+            multiTouchInput.tick();
         },
         render() {
             let canvas = kontra_getCanvas();
@@ -504,6 +519,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 context.fillText(format_time(timer), x, y);
                 context.fillText(format_points(map.points), x, y + 32);
             }
+
+            touchToKeyboard.render();
         }
     });
 
