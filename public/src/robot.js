@@ -31,6 +31,7 @@ let createRobot = function () {
         ]),
         update: function (controls) {
             if (this.disabled) {
+                this.isMoving = false;
                 return;
             }
 

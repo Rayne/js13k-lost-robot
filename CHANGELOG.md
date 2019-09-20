@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Removed unexpected turbo graphics effects when reaching the goal
+
 - Added favicon
 
 - Added multi-touch support
