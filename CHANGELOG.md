@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Added favicon
+
+- Added multi-touch support
+
 - Fixed missing turbo effect when moving backwards and turning left
 
 - Fixed unexpected rotation when pressing LEFT + RIGHT at the same time (Easy Mode)
