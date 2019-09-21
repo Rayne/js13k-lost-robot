@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Map loading resets the temporary point cloud ("weak map")
+
 - Removed unexpected turbo graphics effects when reaching the goal
 
 - Added favicon

@@ -228,6 +228,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 robot.polygon.pos.y = map.start.y;
                 robot.polygon.setAngle(map.startAngle);
 
+                rememberedPoints = [];
+                rememberedPointsPos = 0;
+
                 goal.x = map.goal.x - 32;
                 goal.y = map.goal.y - 32;
 
