@@ -75,7 +75,7 @@ export class TouchToKeyboard {
             }
         });
 
-        Log.instance().log(document.APP.touch2keys);
+        Log.instance().log("TouchToKeys=" +JSON.stringify(document.APP.touch2keys));
     }
 
     render() {
