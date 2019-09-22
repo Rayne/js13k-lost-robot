@@ -13,7 +13,9 @@ Fortunately, the remote interface is working as expected.
 
 - Chrome, Edge or Firefox with ES6 support
 
-- Keyboard (there are no touch controls)
+- Keyboard or multi-touch screen
+
+  > ⚠ *The original JS13K version has no touch controls*
 
 ## Workflow
 
