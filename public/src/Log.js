@@ -20,15 +20,37 @@ export class Log {
         this._log.push(message);
     }
 
+    reset() {
+        this._log = [];
+    }
+
     render(context) {
-        context.fillStyle = 'black';
         context.font = '22px monospace';
 
+        let colors = [
+            'red',
+            'green',
+            'blue'
+        ];
+
+        let height = 32;
+
         for (let i = 0; i < this._log.length; ++i) {
-            context.clearRect(0, (i) * 16, 500, 16);
-            context.fillText(JSON.stringify(this._log[i]), 6, (i + 1) * 16);
+            let text = JSON.stringify(this._log[i]);
+            let textMeasurement = context.measureText(text);
+
+            context.fillStyle = colors[i % colors.length];
+
+            context.beginPath();
+            context.rect(0, (i) * height, textMeasurement.width + 12, height);
+            context.fill();
+
+            context.fillStyle = 'white';
+
+            context.beginPath();
+            context.fillText(text, 6, (i + 1) * height - 8);
         }
 
-        this._log = [];
+        this.reset();
     }
 }

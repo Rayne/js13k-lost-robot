@@ -39,12 +39,22 @@ let showLevelSelectScreen = null;
 
 let APP = {
     DEBUG: {
+        render_log: false,
         render_groundtruth: false,
+        render_quadtree_all: false,
+        render_quadtree_boxes: false,
+        render_quadtree_cells: false,
+        render_quadtree_queries: false,
+        render_quadtree_segments: false,
         add_noise_to_sensors: true,
         frames: {
             slidingMean: new SlidingMean(60, 60),
             tickEnd: Date.now() - 60,
             tickBegin: Date.now(),
+        },
+        quadtree: {
+            rects: [],
+            segments: [],
         }
     },
     resize_canvas: true,
@@ -253,6 +263,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
+            APP.DEBUG.quadtree.rects = [];
+            APP.DEBUG.quadtree.segments = [];
+
+            Log.instance().reset();
+
             updateCounter += 1;
             pointLossCountdown -= 1 / 60;
 
@@ -327,32 +342,61 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             }
 
-            robot.sensors.forEach(sensor => {
-                sensor.update(robot);
+            // Sense obstacles with sensors.
+            {
+                robot.sensors.forEach(sensor => {
+                    sensor.update(robot);
 
-                let lineSegments = map.obstacles.lineSegments.slice();
+                    let lineSegments = [];
 
-                map.doors.forEach(
-                    door => door.lineSegments.forEach(
-                        lineSegment => lineSegments.push(lineSegment)));
+                    // Collect segments.
+                    {
+                        let xMin = Math.min(sensor._end.x, sensor._begin.x);
+                        let xMax = Math.max(sensor._end.x, sensor._begin.x);
+                        let yMin = Math.min(sensor._end.y, sensor._begin.y);
+                        let yMax = Math.max(sensor._end.y, sensor._begin.y);
 
-                let intersectionPoint = sensor.sense(lineSegments);
+                        let sensorBoundingBox = {
+                            x: xMin,
+                            y: yMin,
+                            width: xMax - xMin,
+                            height: yMax - yMin,
+                        };
 
-                if (intersectionPoint) {
-                    // Apply distance depending noise.
-                    // TODO Export this as module.
-                    if (APP.DEBUG.add_noise_to_sensors) {
-                        let distance = sensor.distance;
-                        let noise = distance <= 100 ? 0 : Math.min(Math.log10(distance / (distance < 200 ? 25 : 0.0001)), 20);
-                        intersectionPoint.moveXY((Math.random() - 0.5) * noise, (Math.random() - 0.5) * noise);
+                        APP.DEBUG.quadtree.rects.push(sensorBoundingBox);
+
+                        let quadGet = map.obstacles.quadtree.get(sensorBoundingBox);
+
+                        // Get obstacles in sensor range.
+                        lineSegments = quadGet.map(item => item.segment);
+                        APP.DEBUG.quadtree.segments.push(lineSegments);
+
+                        // Add all closed doors.
+                        map.doors.forEach(door => {
+                            if (!door.isOpen) {
+                                door.lineSegments.forEach(lineSegment => lineSegments.push(lineSegment))
+                            }
+                        });
                     }
 
-                    if (rememberInFrames === 0) {
-                        rememberedPointsPos = (rememberedPointsPos + 1) % rememberLimit;
-                        rememberedPoints[rememberedPointsPos] = intersectionPoint;
+                    let intersectionPoint = sensor.sense(lineSegments);
+
+                    if (intersectionPoint) {
+                        // Apply distance depending noise.
+                        // TODO Export this as module.
+                        if (APP.DEBUG.add_noise_to_sensors) {
+                            let distance = sensor.distance;
+                            let noise = distance <= 100 ? 0 : Math.min(Math.log10(distance / (distance < 200 ? 25 : 0.0001)), 20);
+                            intersectionPoint.moveXY((Math.random() - 0.5) * noise, (Math.random() - 0.5) * noise);
+                        }
+
+                        if (rememberInFrames === 0) {
+                            rememberedPointsPos = (rememberedPointsPos + 1) % rememberLimit;
+                            rememberedPoints[rememberedPointsPos] = intersectionPoint;
+                        }
                     }
-                }
-            });
+                });
+            }
 
             goal.update();
 
@@ -406,6 +450,75 @@ document.addEventListener('DOMContentLoaded', function () {
                     context.rotate(-robot.polygon.angle - AM.deg2rad(90));
                     context.translate(-mx, -my);
                 }
+            }
+
+            // Displays quadtree cells.
+            if (APP.DEBUG.render_quadtree_all || APP.DEBUG.render_quadtree_cells || APP.DEBUG.render_quadtree_boxes) {
+                context.lineWidth = 1;
+
+                let renderQuadtree = function (node) {
+                    if (APP.DEBUG.render_quadtree_all || APP.DEBUG.render_quadtree_cells) {
+                        context.strokeStyle = '#c0c0c0';
+                        context.strokeRect(node.bounds.x, node.bounds.y, node.bounds.width, node.bounds.height);
+                    }
+
+                    // Render children.
+                    //
+                    // > render the subnodes so long as this node is a branch and has subnodes
+                    // >
+                    // > - Kontra documentation
+                    if (node._b && node._s.length) {
+                        for (let i = 0; i < 4; i++) {
+                            renderQuadtree(node._s[i]);
+                        }
+                    }
+
+                    // Render object bounding boxes.
+                    if (APP.DEBUG.render_quadtree_all || APP.DEBUG.render_quadtree_boxes) {
+                        node._o.forEach(object => {
+                            context.strokeStyle = 'rgba(255,0,0,0.5)';
+                            context.strokeRect(object.x, object.y, object.width, object.height);
+                        })
+                    }
+                };
+
+                renderQuadtree(map.obstacles.quadtree);
+            }
+
+            // Displays active segments.
+            if (APP.DEBUG.render_quadtree_all || APP.DEBUG.render_quadtree_segments) {
+                let segmentCounter = 0;
+                let segmentCounterMax = 22 * (map.obstacles.obstacles.length + map.doors.length);
+
+                APP.DEBUG.quadtree.segments.forEach(segments => {
+                    segments.forEach(segment => {
+                        segmentCounter += 1;
+
+                        context.lineWidth = 8;
+                        context.strokeStyle = '#ff0000';
+
+                        context.beginPath();
+                        context.moveTo(segment[0].x, segment[0].y);
+                        context.lineTo(segment[1].x, segment[1].y);
+                        context.stroke();
+                    });
+                });
+
+                Log.instance().log('Reduced intersection checks to ' + segmentCounter + ' of ' + segmentCounterMax + '.');
+            }
+
+            // Displays active queries.
+            if (APP.DEBUG.render_quadtree_all || APP.DEBUG.render_quadtree_queries) {
+                APP.DEBUG.quadtree.rects.forEach(rect => {
+                    context.fillStyle = 'rgba(117,112,204,0.1)';
+
+                    context.lineWidth = 1;
+                    context.strokeStyle = 'rgba(0,0,255,0.5)';
+
+                    context.beginPath();
+                    context.rect(rect.x, rect.y, rect.width, rect.height);
+                    context.stroke();
+                });
             }
 
             // Render the ground truth.
@@ -524,6 +637,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             touchToKeyboard.render();
+
+            if (APP.DEBUG.render_log) {
+                Log.instance().render(context);
+            }
         }
     });
 

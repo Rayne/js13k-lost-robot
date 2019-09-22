@@ -5,8 +5,9 @@
  * please view the LICENSE file that was distributed with this source code.
  */
 
-import {Sprite} from "../../node_modules/kontra/kontra.mjs";
+import {Sprite, Quadtree} from "../../node_modules/kontra/kontra.mjs";
 import {AM} from "./math.js";
+import {Log} from "./Log.js";
 
 class ObstacleManager {
     constructor() {
@@ -28,6 +29,68 @@ class ObstacleManager {
          * @type {Array}
          */
         this.lineSegments = [];
+
+        this.quadtree = new Quadtree();
+    }
+
+    /**
+     * Synchronizes the quadtree.
+     */
+    updateQuadtree() {
+        let bounds = {
+            xMin: Infinity,
+            xMax: -Infinity,
+            yMin: Infinity,
+            yMax: -Infinity,
+        };
+
+        let obstacles = [];
+
+        /**
+         * Registers obstacles and updates the bounds of the Quadtree
+         * to make it big enough for all obstacles.
+         *
+         * @param {Object[]} segment
+         */
+        let segmentConverter = segment => {
+            let a = segment[0];
+            let b = segment[1];
+
+            let xMin = Math.min(a.x, b.x);
+            let xMax = Math.max(a.x, b.x);
+            let yMin = Math.min(a.y, b.y);
+            let yMax = Math.max(a.y, b.y);
+
+            obstacles.push({
+                x: xMin,
+                y: yMin,
+                width: xMax - xMin,
+                height: yMax - yMin,
+                segment: segment,
+            });
+
+            // Update the area of the Quadtree.
+            bounds.xMin = Math.min(bounds.xMin, xMin);
+            bounds.xMax = Math.max(bounds.xMax, xMax);
+            bounds.yMin = Math.min(bounds.yMin, yMin);
+            bounds.yMax = Math.max(bounds.yMax, yMax);
+       };
+
+        this.lineSegments.forEach(segmentConverter);
+
+        this.quadtree.clear();
+        this.quadtree.maxDepth = 3;
+        this.quadtree.maxObjects = 5;
+        this.quadtree.bounds = {
+            x: bounds.xMin,
+            y: bounds.yMin,
+
+            // @see https://github.com/straker/kontra/issues/111
+            width: bounds.xMax - bounds.xMin + 2,
+            height: bounds.yMax - bounds.yMin + 2,
+        };
+
+        this.quadtree.add(obstacles);
     }
 
     /**

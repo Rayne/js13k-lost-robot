@@ -50,7 +50,6 @@ class Map {
         this.reset();
         this.id = mapId;
 
-
         this.startTimer();
 
         let map = this;
@@ -92,6 +91,9 @@ class Map {
                 });
             }
         });
+
+        // Finalize the loading process by building the quadtree.
+        map.obstacles.updateQuadtree();
     }
 
     addCollectible(cx, cy) {
@@ -160,7 +162,7 @@ class Map {
                     return;
                 }
 
-                zzfx(1,.1,1,.7,.12,2.2,.2,0,.25); // ZzFX 40871
+                zzfx(1, .1, 1, .7, .12, 2.2, .2, 0, .25); // ZzFX 40871
             }
         });
 
