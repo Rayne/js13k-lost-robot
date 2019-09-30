@@ -34,6 +34,8 @@ html-minifier \
 
 mkdir "$DEST/assets"
 
+npm run sass-final
+
 html-minifier \
   --collapse-whitespace \
   --remove-comments \
@@ -44,7 +46,9 @@ html-minifier \
   --use-short-doctype \
   --minify-css '{ "level": 2 }' \
   --minify-js true \
-  -o  "$DEST/assets/style.css" public/assets/style.css
+  -o  "$DEST/assets/main.css" public/assets/main.css
+
+cp -r public/assets/*.{jpg,png,svg} "$DEST/assets"
 
 mkdir "$DEST/src"
 
@@ -58,6 +62,7 @@ rm "$DEST/src/app.tmp.js"
 mkdir "$DEST/vendor"
 minify_js public/vendor/SAT.js vendor/SAT.js
 minify_js public/vendor/ZzFX.micro.js vendor/ZzFX.micro.js
+cp -r "public/vendor/google" "$DEST/vendor/google"
 
 cd "$DEST"
 zip -r9 "../$ID.zip" ./*

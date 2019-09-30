@@ -5,8 +5,8 @@
  * please view the LICENSE file that was distributed with this source code.
  */
 
-import {Sprite} from "../../node_modules/kontra/kontra.mjs";
-import {AM} from "./math.js";
+import {Sprite} from "../../../node_modules/kontra/kontra.mjs";
+import {AM} from "../math.js";
 
 /**
  * A distance sensor that can be mounted on another entity, e.g. a vehicle.
@@ -128,35 +128,38 @@ export class DistanceSensor {
     }
 }
 
-// export class RotatingDistanceSensor extends DistanceSensor {
-//     /**
-//      * @param parent
-//      * @param {AM.Vector2D|Sprite|Vector} position
-//      * @param {number} angleRadian
-//      * @param {number} angleRangeRadian
-//      * @param {number} angleStepRadian
-//      * @param {number} maxDistance
-//      */
-//     constructor(parent, position, angleRadian, angleRangeRadian, angleStepRadian, maxDistance) {
-//         super(parent, position, angleRadian, maxDistance);
-//
-//         this.angleMin = angleRadian - angleRangeRadian / 2;
-//         this.angleMax = angleRadian + angleRangeRadian / 2;
-//         this.angleDirection = 1;
-//         this.angleStep = angleStepRadian;
-//     }
-//
-//     update() {
-//         this.angle += this.angleDirection * this.angleStep;
-//
-//         if (this.angle < this.angleMin) {
-//             this.angle = this.angleMin;
-//             this.angleDirection *= -1;
-//         } else if (this.angle > this.angleMax) {
-//             this.angle = this.angleMax;
-//             this.angleDirection *= -1;
-//         }
-//
-//         super.update();
-//     }
-// }
+/**
+ * TODO Add tail effect and scan multiple points (depending on dt).
+ */
+export class RotatingDistanceSensor extends DistanceSensor {
+    /**
+     * @param parent
+     * @param {AM.Vector2D|Sprite|Vector} position
+     * @param {number} angleRadian
+     * @param {number} angleRangeRadian
+     * @param {number} angleStepRadian
+     * @param {number} maxDistance
+     */
+    constructor(parent, position, angleRadian, angleRangeRadian, angleStepRadian, maxDistance) {
+        super(parent, position, angleRadian, maxDistance);
+
+        this.angleMin = angleRadian - angleRangeRadian / 2;
+        this.angleMax = angleRadian + angleRangeRadian / 2;
+        this.angleDirection = 1;
+        this.angleStep = angleStepRadian;
+    }
+
+    update() {
+        this.angle += this.angleDirection * this.angleStep;
+
+        if (this.angle < this.angleMin) {
+            this.angle = this.angleMin;
+            this.angleDirection *= -1;
+        } else if (this.angle > this.angleMax) {
+            this.angle = this.angleMax;
+            this.angleDirection *= -1;
+        }
+
+        super.update();
+    }
+}

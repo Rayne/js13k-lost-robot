@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Added a pause menu that can be opened by pressing ESC or touching the pause symbol.
+  The menu allows to resume, restart or quit
+
+- Added menus with keyboard, mouse and touch controls:
+  Intro screen, main menu, level menu, objectives screen, controls screen, credits and pause menu
+
 - Map loading resets the temporary point cloud ("weak map")
 
 - Removed unexpected turbo graphics effects when reaching the goal

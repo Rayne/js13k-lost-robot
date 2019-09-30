@@ -5,12 +5,12 @@
  * please view the LICENSE file that was distributed with this source code.
  */
 
-import {Sprite, keyPressed as kontra_keyPressed} from '../../node_modules/kontra/kontra.mjs';
-import {AM} from './math.js';
+import {Sprite, keyPressed as kontra_keyPressed} from '../../../node_modules/kontra/kontra.mjs';
+import {AM} from '../math.js';
 import {DistanceSensor} from "./sensors.js";
-import * as Input from './Input/Input.js';
+import * as Input from '../Input/Input.js';
 
-let createRobot = function () {
+export let createRobot = function () {
     let robot = Sprite({
         _cameraKeyDown: false,
 
@@ -39,7 +39,7 @@ let createRobot = function () {
 
             // Toggle camera mode.
             {
-                let app = document.APP;
+                let app = document.APP_CONFIG;
                 let cameraKeyDown = controls[Input.CAMERA];
 
                 if (cameraKeyDown && !this._cameraKeyDown) {
@@ -47,16 +47,6 @@ let createRobot = function () {
                 }
 
                 this._cameraKeyDown = cameraKeyDown;
-            }
-
-            // Back to level screen.
-            // Doesn't really belong to this class,
-            // but we are now handling all keys here due to a lack of time for a proper refactoring.
-            {
-                if (controls[Input.PAUSE]) {
-                    document.APP.showLevelSelect();
-                    return;
-                }
             }
 
             {
@@ -348,5 +338,3 @@ let createRobot = function () {
 
     return robot;
 };
-
-export {createRobot}

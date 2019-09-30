@@ -1,4 +1,4 @@
-import {getCanvas as kontra_getCanvas, Sprite} from "../../../node_modules/kontra/kontra.mjs";
+import {Sprite} from "../../../node_modules/kontra/kontra.mjs";
 import {Log} from "../Log.js";
 
 let arrowRightPolygon = [
@@ -59,8 +59,8 @@ export class TouchToKeyboard {
             sprite.ttl = 1;
         });
 
-        document.APP.touch2keys = {};
-        let touch2keys = document.APP.touch2keys;
+        document.APP_CONFIG.touch2keys = {};
+        let touch2keys = document.APP_CONFIG.touch2keys;
 
         this.touchSprites.forEach(sprite => {
             if (sprite.ttl > 0) {
@@ -75,7 +75,7 @@ export class TouchToKeyboard {
             }
         });
 
-        Log.instance().log("TouchToKeys=" +JSON.stringify(document.APP.touch2keys));
+        Log.instance().log("TouchToKeys=" + JSON.stringify(document.APP_CONFIG.touch2keys));
     }
 
     render() {
@@ -143,8 +143,8 @@ export class TouchToKeyboard {
                 isTouched: false,
                 update() {
                     // Easy input.
-                    let canvasHeight = kontra_getCanvas().height;
-                    let canvasWidth = kontra_getCanvas().width;
+                    let canvasHeight = this.context.canvas.height;
+                    let canvasWidth = this.context.canvas.width;
                     let reference = Math.min(canvasWidth, canvasHeight);
 
                     let size32 = (32 / 1920) * canvasWidth;
@@ -204,5 +204,60 @@ export class TouchToKeyboard {
             }))
         });
 
+        this.controlSprites.push(Sprite({
+            ttl: 300 * 60,
+            simulatedKey: 'esc',
+            isTouched: false,
+            update() {
+                let canvasHeight = this.context.canvas.height;
+                let canvasWidth = this.context.canvas.width;
+                let reference = Math.min(canvasWidth, canvasHeight);
+
+                let size32 = (32 / 1920) * canvasWidth;
+                let size256 = (256 / 1920) * canvasWidth;
+                let size320 = (320 / 1920) * canvasWidth;
+
+                size32 = (32 / 1920) * reference;
+                size256 = (512 / 1920) * reference;
+                size320 = (512 / 1920) * reference;
+
+                this.width = size320 / 2;
+                this.height = size256 / 2;
+
+                this.x = canvasWidth - this.width - size32 - size320 / 4;
+                this.y = size32 + size320 / 4;
+            },
+            render() {
+                if (this.ttl > 0) {
+                    let context = this.context;
+
+                    let cx = this.x + this.width / 2;
+                    let cy = this.y + this.height / 2;
+                    let scale = Math.min(this.width, this.height) / 6;
+
+                    context.fillStyle = 'rgba(117,112,204,0.125' + (this.isTouched ? 25 : 125) + ')';
+
+                    context.beginPath();
+
+                    context.moveTo(-3 * scale + cx, -3 * scale + cy);
+                    context.lineTo(-1 * scale + cx, -3 * scale + cy);
+                    context.lineTo(-1 * scale + cx, 3 * scale + cy);
+                    context.lineTo(-3 * scale + cx, 3 * scale + cy);
+
+                    context.moveTo(1 * scale + cx, 3 * scale + cy);
+                    context.lineTo(3 * scale + cx, 3 * scale + cy);
+                    context.lineTo(3 * scale + cx, -3 * scale + cy);
+                    context.lineTo(1 * scale + cx, -3 * scale + cy);
+
+                    context.fill();
+
+                    if (this.isTouched) {
+                        context.beginPath();
+                        context.rect(this.x, this.y, this.width, this.height);
+                        context.fill();
+                    }
+                }
+            }
+        }))
     }
 }

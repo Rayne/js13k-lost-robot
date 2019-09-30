@@ -1,0 +1,22 @@
+#scene--main-menu
+  background-image: url("render-front-white.jpg")
+  background-size: cover
+  background-position: center
+  height: 100vh
+  display: flex
+  align-items: center
+  overflow: scroll
+
+  .button-container
+    display: flex
+    flex-direction: column
+
+  .button
+    background: white
+    border: 1px solid black
+    margin: 0.5rem 2rem
+    padding: 0.5rem 2rem 0.5rem 2rem
+    text-align: center
+
+    @include media-md
+      padding: 2rem

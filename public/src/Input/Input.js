@@ -23,18 +23,18 @@ export class UserInput {
     }
 
     update() {
-        this.state[WHEEL_LEFT_PLUS] = keyPressed('w') || document.APP.touch2keys['w'];
-        this.state[WHEEL_LEFT_MINUS] = keyPressed('s') || document.APP.touch2keys['s'];
-        this.state[WHEEL_RIGHT_PLUS] = keyPressed('i') || document.APP.touch2keys['i'];
-        this.state[WHEEL_RIGHT_MINUS] = keyPressed('k') || document.APP.touch2keys['k'];
+        this.state[WHEEL_LEFT_PLUS] = keyPressed('w') || document.APP_CONFIG.touch2keys['w'];
+        this.state[WHEEL_LEFT_MINUS] = keyPressed('s') || document.APP_CONFIG.touch2keys['s'];
+        this.state[WHEEL_RIGHT_PLUS] = keyPressed('i') || document.APP_CONFIG.touch2keys['i'];
+        this.state[WHEEL_RIGHT_MINUS] = keyPressed('k') || document.APP_CONFIG.touch2keys['k'];
 
-        this.state[EASY_UP] = keyPressed('up') || document.APP.touch2keys['up'];
-        this.state[EASY_DOWN] = keyPressed('down') || document.APP.touch2keys['down'];
-        this.state[EASY_LEFT] = keyPressed('left') || document.APP.touch2keys['left'];
-        this.state[EASY_RIGHT] = keyPressed('right') || document.APP.touch2keys['right'];
+        this.state[EASY_UP] = keyPressed('up') || document.APP_CONFIG.touch2keys['up'];
+        this.state[EASY_DOWN] = keyPressed('down') || document.APP_CONFIG.touch2keys['down'];
+        this.state[EASY_LEFT] = keyPressed('left') || document.APP_CONFIG.touch2keys['left'];
+        this.state[EASY_RIGHT] = keyPressed('right') || document.APP_CONFIG.touch2keys['right'];
 
-        this.state[CAMERA] = keyPressed('c');
-        this.state[PAUSE] = keyPressed('esc');
-        this.state[TURBO] = keyPressed('t') || keyPressed('space');
+        this.state[CAMERA] = keyPressed('c'); // TODO Support camera on touch devices.
+        this.state[PAUSE] = keyPressed('esc') || document.APP_CONFIG.touch2keys['esc'];
+        this.state[TURBO] = keyPressed('t') || keyPressed('space'); // TODO Support turbo on touch devices.
     }
 }

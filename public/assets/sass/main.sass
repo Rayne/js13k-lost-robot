@@ -1,0 +1,22 @@
+$screen-sm-min: 540px
+$screen-md-min: 880px
+$screen-lg-min: 980px
+
+@mixin media-sm
+  @media (min-width: #{$screen-sm-min})
+    @content
+
+@mixin media-md
+  @media (min-width: #{$screen-md-min})
+    @content
+
+@mixin media-lg
+  @media (min-width: #{$screen-lg-min})
+    @content
+
+@import "fonts"
+@import "reset"
+@import "game"
+@import "scenes/level-menu"
+@import "scenes/main-menu"
+@import "scenes/pause-menu"

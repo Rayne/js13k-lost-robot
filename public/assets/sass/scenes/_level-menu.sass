@@ -1,0 +1,68 @@
+#scene--level-menu,
+#scene--objectives,
+#scene--controls,
+#scene--credits
+  height: 100vh
+  overflow: scroll
+
+  .back-button
+    border: 1px solid black
+    padding: 0.5rem
+    text-align: center
+    display: inline-block
+
+  > .content
+    padding: 1rem
+
+  .back-button
+    &:before
+      content: "⮌ "
+
+    @include media-md
+      padding: 2rem
+
+#scene--level-menu,
+#scene--objectives
+  background-color: black
+  background-image: url("render-back.jpg")
+  background-size: contain
+  background-position: bottom right
+  background-repeat: no-repeat
+  color: white
+
+  .back-button
+    background: white
+    color: black
+
+  #level-select
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+
+    // Compensate padding-top of embedded level wrappers.
+    margin-top: -1rem
+
+    .level-wrapper
+      box-sizing: border-box
+      width: 50%
+
+      // Padding to the item on the right.
+      padding: 1rem 0.5rem 0 0
+
+      &:nth-child(2n)
+        // Padding to the item on the left.
+        padding: 1rem 0 0 0.5rem
+
+    .level-button
+      background: #fff
+      color: #000
+      border: 1px solid #000
+      text-align: center
+
+    .level-button *
+      margin: 1rem 0
+      white-space: nowrap
+
+#scene--objectives
+  li
+    background: black

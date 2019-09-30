@@ -15,13 +15,12 @@ class Map {
     }
 
     startTimer() {
-        this.timerStart = Date.now();
+        this.time = 0;
+        this.timerEnabled = true;
     }
 
     stopTimer() {
-        if (!this.timerStop) {
-            this.timerStop = Date.now();
-        }
+        this.timerEnabled = false;
     }
 
     reset() {
@@ -38,11 +37,6 @@ class Map {
     }
 
     /**
-     * FIXME There are rare occurrences of
-     *       "SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data".
-     *       It's sometimes possible to reproduce the error message in the console
-     *       but the maps are loaded as expected.
-     *
      * @param {string} serializedMap
      * @param {string} mapId
      */

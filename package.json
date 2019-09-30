@@ -1,11 +1,16 @@
 {
   "dependencies": {
     "kontra": "^6.4.0",
+    "sass": "^1.22.12",
     "sat": "^0.7.1"
   },
   "devDependencies": {
     "html-minifier": "^4.0.0",
     "rollup": "^1.20.3",
     "terser": "^4.2.0"
+  },
+  "scripts": {
+    "sass-dev": "./node_modules/.bin/sass public/assets/sass/main.sass:public/assets/main.css",
+    "sass-final": "./node_modules/.bin/sass public/assets/sass/main.sass:public/assets/main.css --style compressed --no-source-map"
   }
 }

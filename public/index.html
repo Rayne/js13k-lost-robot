@@ -4,14 +4,13 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <title>LOST ROBOT</title>
-    <link rel="stylesheet" href="assets/style.css"/>
+    <link rel="stylesheet" href="assets/main.css"/>
 
     <link rel="shortcut icon" href="assets/favicon.svg" type="image/svg+xml"/>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
 
     <link rel="shortcut icon" href="assets/favicon.png" type="image/png"/>
     <link rel="icon" href="assets/favicon.png" type="image/png"/>
-
 </head>
 <body>
 
@@ -21,59 +20,48 @@
 <script src="vendor/ZzFX.micro.js"></script>
 <script src="src/app.js" type="module"></script>
 
-<div class="fullscreen" id="title-screen">
-    <div style="max-width:800px">
-        <h1>LOST ROBOT</h1>
-
-        <div id="scenario">
-            <blockquote>
-                <p>
-                    If I'd written the mapping module, it wouldn't be offline!
-                </p>
-            </blockquote>
-
-            <p>
-                Well, Jörg didn't write the module
-                and as a result we now have a robot that doesn't know the way back anymore
-                because the mapping module is offline.
-                Fortunately, the remote interface is working as expected.
-            </p>
+<!-- MAIN MENU -->
+<div style="display: none">
+    <div id="scene--main-menu">
+        <div class="button-container">
+            <div class="button" data-action="scenarios">Scenarios</div>
+            <div class="button" data-action="objectives">Objectives</div>
+            <div class="button" data-action="controls">Controls</div>
+            <div class="button" data-action="credits">Credits</div>
         </div>
-
-        <button id="start" disabled>Loading … Please wait.</button>
-
-        <p style="font-size: 1rem;">
-            This is a game by Dennis Meckel. Have fun and good luck!
-        </p>
     </div>
 </div>
 
-<div id="level" class="fullscreen" style="display: none;">
-    <div>
-        <h1>CHOOSE A MAP</h1>
-        <div id="level-select"></div>
-    </div>
+<!-- LEVEL MENU -->
+<div style="display: none">
+    <div id="scene--level-menu">
+        <div class="content">
+            <div class="back-button" data-action="back">Back</div>
+            <h2>Scenarios</h2>
 
-    <div style="display:flex;flex-wrap: wrap;">
-        <div style="margin-right:4rem;">
-            <h2>EASY MODE</h2>
-            <ul>
-                <li>Move <kbd>←</kbd> <kbd>↑</kbd> <kbd>↓</kbd> <kbd>→</kbd></li>
-                <li>Turbo <kbd>T</kbd></li>
-                <li>Camera <kbd>C</kbd></li>
-            </ul>
+            <!-- Template -->
+            <div id="level-select-template" style="display: none">
+                <div class="level-wrapper">
+                    <div class="level-button" data-level-id="{{ level.id }}">
+                        <div>{{ level.name }}</div>
+                        <div>{{ level.points }}</div>
+                        <div>{{ level.time }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="level-select">
+            </div>
         </div>
-        <div style="margin-right:4rem;">
-            <h2>HARD MODE</h2>
-            <ul>
-                <li>Left wheel <kbd>W</kbd>/<kbd>S</kbd></li>
-                <li>Right wheel <kbd>I</kbd>/<kbd>K</kbd></li>
-                <li>Turbo <kbd>SPACE</kbd></li>
-                <li>Camera <kbd>C</kbd></li>
-            </ul>
-        </div>
-        <div>
-            <h2>OBJECTIVES</h2>
+    </div>
+</div>
+
+<!-- OBJECTIVES -->
+<div style="display: none">
+    <div id="scene--objectives">
+        <div class="content">
+            <div class="back-button" data-action="back">Back</div>
+            <h2>Objectives</h2>
             <ul>
                 <li>Guide the robot back to its shiny charging point</li>
                 <li>Visit placed landmarks to gain points and open doors</li>
@@ -83,19 +71,66 @@
     </div>
 </div>
 
-<div id="debug">
-    <strong>
-        DEBUG
-    </strong>
-    <label>
-        <input type="checkbox" name="fixed-camera"> Fixed Camera
-    </label>
-    <label>
-        <input type="checkbox" name="noise"> Noise
-    </label>
-    <label>
-        <input type="checkbox" name="groundtruth"> Groundtruth
-    </label>
+<!-- CONTROLS -->
+<div style="display: none">
+    <div id="scene--controls">
+        <div class="content">
+            <div class="back-button" data-action="back">Back</div>
+
+            <h2>Controls</h2>
+
+            <ul>
+                <li>Camera <kbd>C</kbd></li>
+            </ul>
+
+            <h3>Easy Mode</h3>
+            <ul>
+                <li>Move <kbd>←</kbd> <kbd>↑</kbd> <kbd>↓</kbd> <kbd>→</kbd></li>
+                <li>Turbo <kbd>T</kbd></li>
+            </ul>
+
+            <h3>Differential Mode</h3>
+            <ul>
+                <li>Left wheel <kbd>W</kbd>/<kbd>S</kbd></li>
+                <li>Right wheel <kbd>I</kbd>/<kbd>K</kbd></li>
+                <li>Turbo <kbd>SPACE</kbd></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- CONTROLS -->
+<div style="display: none">
+    <div id="scene--credits">
+        <div class="content">
+            <div class="back-button" data-action="back">Back</div>
+
+            <h2>Credits</h2>
+
+            <ul>
+                <li>
+                    Lost Robot is a game by Dennis Meckel.
+                    The game was developed in two weeks for the <a href="http://js13kgames.com">JS13KGAMES</a> competition.
+                    You are playing the extended Deluxe Bytes Edition
+                </li>
+                <li><a href="https://straker.github.io/kontra/">Kontra.js</a></li>
+                <li><a href="http://jriecken.github.io/sat-js/">SAT.js</a></li>
+                <li><a href="https://zzfx.3d2k.com/">ZzFX</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- PAUSE -->
+<div style="display: none">
+    <div id="scene--pause-menu">
+        <div style="">
+            <div>Paused</div>
+            <div data-action="resume">Resume</div>
+            <div data-action="restart">Restart</div>
+            <div data-action="quit">Quit</div>
+        </div>
+    </div>
 </div>
 
 </body>

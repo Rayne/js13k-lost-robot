@@ -5,9 +5,8 @@
  * please view the LICENSE file that was distributed with this source code.
  */
 
-import {Sprite, Quadtree} from "../../node_modules/kontra/kontra.mjs";
+import * as kontra from "../../node_modules/kontra/kontra.mjs";
 import {AM} from "./math.js";
-import {Log} from "./Log.js";
 
 class ObstacleManager {
     constructor() {
@@ -30,7 +29,15 @@ class ObstacleManager {
          */
         this.lineSegments = [];
 
-        this.quadtree = new Quadtree();
+        this.quadtree = new kontra.Quadtree({
+            // Workaround "canvas is undefined".
+            bounds: {
+                x: 0,
+                y: 0,
+                width: 0,
+                height: 0,
+            }
+        });
     }
 
     /**
@@ -74,7 +81,7 @@ class ObstacleManager {
             bounds.xMax = Math.max(bounds.xMax, xMax);
             bounds.yMin = Math.min(bounds.yMin, yMin);
             bounds.yMax = Math.max(bounds.yMax, yMax);
-       };
+        };
 
         this.lineSegments.forEach(segmentConverter);
 
@@ -100,7 +107,7 @@ class ObstacleManager {
     _addInternalPolygon(polygon) {
         this._addInternalSegments(polygon);
 
-        this.obstacles.push(Sprite({
+        this.obstacles.push(kontra.Sprite({
             polygon: polygon,
             render() {
                 let context = this.context;
