@@ -23,7 +23,7 @@ export function pad_left(input, width, symbol) {
 export function format_time(milliseconds) {
     let m = pad_left((milliseconds / 1000 / 60) | 0, 2, 0);
     let s = pad_left((milliseconds / 1000 % 60) | 0, 2, 0);
-    let ms = pad_left(milliseconds % 1000, 3, 0);
+    let ms = pad_left((milliseconds % 1000) | 0, 3, 0);
     return m + ':' + s + ':' + ms;
 }
 
