@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- The viewport is now independent from browser resolution and pixel density.
+  It scales itself to contain all sensor readings
+
 - Added a pause menu that can be opened by pressing ESC or touching the pause symbol.
   The menu allows to resume, restart or quit
 

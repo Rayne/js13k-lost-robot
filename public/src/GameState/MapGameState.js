@@ -4,7 +4,7 @@
 
 import * as kontra from '../../../node_modules/kontra/kontra.mjs';
 
-import {APP_CONFIG} from "../config.js";
+import {APP_CONFIG, RENDER_MODE_CUSTOM_RATIO, RENDER_MODE_SENSOR_RANGE} from "../config.js";
 import {Map} from "../Map.js";
 import * as Input from "../Input/Input.js";
 import {MultiTouchInput} from "../Input/MultiTouchInput.js";
@@ -350,15 +350,30 @@ export class MapGameState extends GameState {
         context.fillStyle = '#fff';
         context.fillRect(0, 0, width, height);
 
-        context.setTransform(1, 0, 0, 1, 0, 0);
+        let ratio = 1;
+
+        if (APP_CONFIG.DEBUG.render_mode === RENDER_MODE_SENSOR_RANGE) {
+            let targetLength = 1024; // Hardcoded max. sensor distance multiplied by two
+            let clientWidth = context.canvas.width;
+            let clientHeight = context.canvas.height;
+
+            let clientLength = Math.min(clientWidth, clientHeight);
+            ratio = clientLength / targetLength;
+        }
+
+        else if (APP_CONFIG.DEBUG.render_mode === RENDER_MODE_CUSTOM_RATIO) {
+            ratio = APP_CONFIG.DEBUG.render_mode_ratio;
+        }
+
+        context.setTransform(ratio, 0, 0, ratio, 0, 0);
 
         // Update the viewport.
         {
             let robotX = this.robot.polygon.pos.x;
             let robotY = this.robot.polygon.pos.y;
 
-            let cx = width / 2 - robotX;
-            let cy = height / 2 - robotY;
+            let cx = (width / 2) / ratio - robotX;
+            let cy = (height / 2) / ratio - robotY;
 
             let mx = robotX;
             let my = robotY;
