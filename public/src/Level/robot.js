@@ -170,6 +170,20 @@ export let createRobot = function () {
                 this.leftAcceleration = leftAcceleration;
                 this.rightAcceleration = rightAcceleration;
             }
+
+            this.updateTrails(dt);
+        },
+        updateTrails(dt) {
+            if (this.trails.length) {
+                this.trails = this.trails.filter(trail => {
+                    if (!this.isMoving) {
+                        return false;
+                    }
+
+                    trail.ttl -= dt;
+                    return trail.ttl > 0;
+                });
+            }
         },
         /**
          * We are manually adding the turbo effect as collision handling occurs in `app.js`.
@@ -263,22 +277,13 @@ export let createRobot = function () {
             context.fillStyle = this.color;
             context.fill();
 
-            if (this.trails.length) {
-                this.trails = this.trails.filter(trail => {
-                    if (!this.isMoving) {
-                        return false;
-                    }
-
-                    context.lineWidth = 1;
-                    context.strokeStyle = '#e27d7e';
-                    context.moveTo(trail.begin.x, trail.begin.y);
-                    context.lineTo(trail.end.x, trail.end.y);
-                    context.stroke();
-
-                    trail.ttl -= 1 / 60;
-                    return trail.ttl > 0;
-                });
-            }
+            this.trails.forEach(trail => {
+                context.lineWidth = 1;
+                context.strokeStyle = '#e27d7e';
+                context.moveTo(trail.begin.x, trail.begin.y);
+                context.lineTo(trail.end.x, trail.end.y);
+                context.stroke();
+            });
 
             // Render color shell.
             {
