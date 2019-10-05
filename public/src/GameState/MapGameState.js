@@ -17,8 +17,8 @@ import {format_time, format_points, pad_left} from "../utils.js"
 
 import {GameState} from "./GameState.js";
 import {PauseMenuGameState} from "./PauseMenuGameState.js";
+import {ShakeViewportEffect} from "../Effect/ShakeViewportEffect.js";
 
-let collides = false;
 let updateCounter = 1;
 let skipUpdates = 0;
 
@@ -44,6 +44,8 @@ export class MapGameState extends GameState {
         this.EVENT_QUIT = () => {
             this.gameStateMachine.popState();
         };
+
+        this.shakeViewportEffect = new ShakeViewportEffect();
 
         this.context = context;
         this.levelId = 1;
@@ -202,6 +204,8 @@ export class MapGameState extends GameState {
             return;
         }
 
+        this.shakeViewportEffect.update(dt);
+
         APP_CONFIG.DEBUG.quadtree.rects = [];
         APP_CONFIG.DEBUG.quadtree.segments = [];
 
@@ -214,40 +218,39 @@ export class MapGameState extends GameState {
 
         // Update robot position and collision handling.
         {
-            let oldPos = this.robot.polygon.pos.clone();
-            let oldAngle = this.robot.polygon.angle;
+            let robot = this.robot;
 
-            this.robot.update(this.userInput.state);
+            let oldPos = robot.polygon.pos.clone();
+            let oldAngle = robot.polygon.angle;
+
+            robot.update(dt, this.userInput.state);
 
             let obstacles = this.map.obstacles.obstacles.slice().concat(this.map.doors);
-            let collisionOccured = false;
 
             for (let i = 0; i < obstacles.length; ++i) {
-                collides = SAT.testPolygonPolygon(this.robot.polygon, obstacles[i].polygon);
+                let collides = SAT.testPolygonPolygon(robot.polygon, obstacles[i].polygon);
 
                 if (collides) {
                     if (this.pointLossCountdown <= 0) {
                         this.pointLossCountdown = .5;
                         this.map.points -= 10;
                         zzfx(1, .2, 278, .3, .14, .6, 4.5, 3, .12); // ZzFX 31881
+
+                        this.shakeViewportEffect.setTtl(0.1);
                     }
 
-                    this.robot.onCollision();
+                    robot.onCollision();
 
                     // Reset position.
-                    this.robot.polygon.pos.copy(oldPos);
-                    this.robot.polygon.setAngle(oldAngle);
+                    robot.polygon.pos.copy(oldPos);
+                    robot.polygon.setAngle(oldAngle);
 
-                    this.robot.isMoving = false;
-                    collisionOccured = true;
-
-                    // skipUpdates = 60 * 0.01;
                     break;
                 }
             }
 
-            if (!collisionOccured && this.robot.isMoving) {
-                this.robot.addMovingEffects();
+            if (!robot.isColliding && robot.isMoving) {
+                robot.addMovingEffects();
             }
         }
 
@@ -366,6 +369,10 @@ export class MapGameState extends GameState {
         }
 
         context.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+        if (this.shakeViewportEffect.ttl > 0) {
+            this.shakeViewportEffect.render(context);
+        }
 
         // Update the viewport.
         {

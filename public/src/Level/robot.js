@@ -5,13 +5,13 @@
  * please view the LICENSE file that was distributed with this source code.
  */
 
-import {Sprite, keyPressed as kontra_keyPressed} from '../../../node_modules/kontra/kontra.mjs';
+import * as kontra from '../../../node_modules/kontra/kontra.mjs';
 import {AM} from '../math.js';
 import {DistanceSensor} from "./sensors.js";
 import * as Input from '../Input/Input.js';
 
 export let createRobot = function () {
-    let robot = Sprite({
+    let robot = kontra.Sprite({
         _cameraKeyDown: false,
 
         disabled: false,
@@ -19,6 +19,7 @@ export let createRobot = function () {
         color: '#feffd9',
         isTurbo: false,
         isMoving: false,
+        isColliding: false,
         trails: [],
         defaultColor: '#feffd9',
         polygon: new SAT.Polygon(new SAT.Vector(100, 100), [
@@ -29,13 +30,14 @@ export let createRobot = function () {
             new SAT.Vector(40, -17.5),
             new SAT.Vector(0, -20),
         ]),
-        update: function (controls) {
+        update: function (dt, controls) {
+            this.color = this.defaultColor;
+            this.isMoving = false;
+            this.isColliding = false;
+
             if (this.disabled) {
-                this.isMoving = false;
                 return;
             }
-
-            this.color = this.defaultColor;
 
             // Toggle camera mode.
             {
@@ -320,6 +322,8 @@ export let createRobot = function () {
         },
         onCollision() {
             this.color = 'red';
+            this.isColliding = true;
+            this.isMoving = false;
         },
     });
 
