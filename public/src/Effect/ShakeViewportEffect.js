@@ -1,6 +1,8 @@
 export class ShakeViewportEffect {
     constructor(ttl) {
-        this.setTtl(ttl);
+        this.skewHorizontal = 0;
+        this.skewVertical = 0;
+        this.ttl = ttl;
     }
 
     setTtl(ttl) {
@@ -10,6 +12,9 @@ export class ShakeViewportEffect {
     update(dt) {
         if (this.ttl > 0) {
             this.ttl -= dt;
+
+            this.skewHorizontal = Math.random() * 0.05;
+            this.skewVertical = Math.random() * 0.05;
         }
     }
 
@@ -23,6 +28,6 @@ export class ShakeViewportEffect {
             return;
         }
 
-        context.transform(1, Math.random() * 0.05, Math.random() * 0.05, 1, 0, 0);
+        context.transform(1, this.skewVertical, this.skewHorizontal, 1, 0, 0);
     }
 }
