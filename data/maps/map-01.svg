@@ -7,24 +7,11 @@
    xmlns="http://www.w3.org/2000/svg"
    id="svg8"
    version="1.1"
-   viewBox="0 0 2364.4276 2230.6878"
-   height="8430.9463"
-   width="8936.4189">
+   viewBox="0 0 2101.5264 1325.5723"
+   height="5010.0371"
+   width="7942.7769">
   <defs
-     id="defs2">
-    <marker
-       style="overflow:visible"
-       id="Arrow1Lend"
-       refX="0"
-       refY="0"
-       orient="auto">
-      <path
-         transform="matrix(-0.8,0,0,-0.8,-10,0)"
-         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
-         d="M 0,0 5,-5 -12.5,0 5,5 Z"
-         id="path1171" />
-    </marker>
-  </defs>
+     id="defs2" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -38,53 +25,77 @@
     </rdf:RDF>
   </metadata>
   <g
-     transform="translate(417.45623,2875.0122)"
+     transform="translate(-75.977744,869.06671)"
      id="layer1">
     <path
-       id="rect877"
-       d="m 930.03753,-2154.0529 h 318.68767 l 99.5286,74.7294 29.6786,125.5294 -54.988,106.4794 -133.3048,51.4461 H 930.03753 Z m -428.03387,789.0036 -159.90073,26.8818 -106.96079,69.421 -48.58914,91.8716 v 235.98544 h -477.59507 v -327.76374 l 147.06925,-254.7593 261.57686,-151.0378 h 320.74393 l 245.84478,251.9432 245.84478,-251.9432 h 259.66097 l -0.1179,0.1176 133.3638,69.4029 54.5327,93.8305 10.5833,114.3 -93.1333,129.1167 -184.15,35.9833 -215.9,-101.6 z m 59.26667,-1195.7551 H 438.34809 l -1.2e-4,764.9358 H 77.168612 l -312.908652,180.678 -180.65786,312.9435 v 361.35764 295.50675 h 728.3082 v -413.49949 l 27.08073,-102.713 77.85934,-57.1967 427.22673,14.6092 201.0833,99.4834 203.2,48.6833 175.6834,-10.5833 133.35,-59.2667 137.5833,-260.35 55.0333,-349.25 -9.5249,-375.7083 54.5041,-183.6209 122.2375,-132.8209 28.5897,-114.7722 -104.7603,-129.5889 -179.9314,-53.5027 -127.0147,39.6305 -65.6166,139.7001 -52.9167,141.8166 -74.0834,91.0167 -92.7685,37.8447 m 0,0 H 930.03753 v -285.3331 H 807.11507 v -76.6696 l 188.32232,1e-4 v 296.3485 H 1285.799 v -379.3702 l -148.5098,-153.4583 H 586.61278 l -148.26469,118.24 v 118.2399 h 120.05018 l 2.87206,76.6696"
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:2.11666656;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1">
+       id="rect894"
+       d="M 76.506911,-868.53754 V -348.7705 H 398.07569 l 246.29884,246.46285 -36.87612,37.025135 266.50704,521.204835 577.72005,-92.57157 11.3144,-72.28267 h 411.7065 v 49.48206 L 2176.5124,192.20131 1986.1855,43.85247 2176.5124,-104.49637 V -252.8452 h -301.766 v 426.94182 h -393.395 l 60.9187,-389.16243 -521.7612,-264.90949 -312.66184,313.93613 -247.68919,-247.85416 v -454.64421 z"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.05833333;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1">
       <desc
-         id="desc1325">type:obstacle</desc>
+         id="desc65">type:obstacle</desc>
     </path>
-    <ellipse
-       ry="16.50531"
-       rx="16.503468"
+    <path
+       id="path881"
+       d="m 762.21448,-258.2754 288.98642,369.74112 162.5977,-16.089609 36.5927,-224.502491 -133.2718,-76.99573"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.0583334;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1">
+      <desc
+         id="desc67">type:obstacle</desc>
+    </path>
+    <circle
+       r="11.641666"
+       onload=""
+       onfocusout=""
+       onfocusin=""
+       onmousemove=""
+       onmouseup=""
+       onmousedown=""
+       onmouseout=""
+       onmouseover=""
+       onclick=""
+       cy="-686.39581"
+       cx="258.27606"
+       id="0"
+       style="opacity:1;fill:#2aff80;fill-opacity:1;stroke:none;stroke-width:0.26458335;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1">
+      <desc
+         id="desc898">type:trigger</desc>
+    </circle>
+    <circle
+       r="11.509375"
        style="opacity:1;fill:#55ddff;fill-opacity:1;stroke:none;stroke-width:0.26458335;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="circle892"
-       cx="1711.8352"
-       cy="-2578.5632">
+       cx="1102.734"
+       cy="-27.992308">
       <desc
          id="desc908">type:trigger</desc>
-    </ellipse>
+    </circle>
     <text
-       transform="scale(0.99961154,1.0003886)"
+       transform="scale(0.99966732,1.0003328)"
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45.86139679px;line-height:1.25;font-family:'Linux Libertine Mono O';-inkscape-font-specification:'Linux Libertine Mono O';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458335"
-       x="1075.2307"
-       y="-2469.9775"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:31.98155212px;line-height:1.25;font-family:'Linux Libertine Mono O';-inkscape-font-specification:'Linux Libertine Mono O';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458335"
+       x="1973.6945"
+       y="-178.52089"
        id="text63"><tspan
          id="tspan61"
-         x="1075.2307"
-         y="-2469.9775"
+         x="1973.6945"
+         y="-178.52089"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.26458335">Goal</tspan></text>
     <text
-       transform="scale(0.99961153,1.0003886)"
+       transform="scale(0.99966732,1.0003328)"
        id="text59"
-       y="-2429.0083"
-       x="548.38586"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45.86139679px;line-height:1.25;font-family:'Linux Libertine Mono O';-inkscape-font-specification:'Linux Libertine Mono O';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458335"
+       y="-566.8468"
+       x="218.67767"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:31.98155212px;line-height:1.25;font-family:'Linux Libertine Mono O';-inkscape-font-specification:'Linux Libertine Mono O';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458335"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.26458335"
-         y="-2429.0083"
-         x="548.38586"
+         y="-566.8468"
+         x="218.67767"
          id="tspan57">Start</tspan></text>
     <circle
-       r="16.668751"
+       r="11.641666"
        style="opacity:1;fill:#0b280b;fill-opacity:1;stroke:none;stroke-width:0.26458335;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="circle884"
-       cx="605.03345"
-       cy="-2405.0779"
+       cx="258.27606"
+       cy="-549.7085"
        onclick=""
        onmouseover=""
        onmouseout=""
@@ -97,9 +108,8 @@
       <desc
          id="desc886">type:start</desc>
     </circle>
-    <ellipse
-       ry="16.695028"
-       rx="16.693163"
+    <circle
+       r="11.641666"
        onload=""
        onfocusout=""
        onfocusin=""
@@ -109,41 +119,112 @@
        onmouseout=""
        onmouseover=""
        onclick=""
-       cy="-2440.3665"
-       cx="1122.5811"
+       cy="-157.26289"
+       cx="2006.351"
        id="circle902"
        style="opacity:1;fill:#0b280b;fill-opacity:1;stroke:none;stroke-width:0.26458335;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1">
       <desc
          id="desc900">type:goal</desc>
-    </ellipse>
+    </circle>
+    <path
+       id="path904"
+       d="m 398.0757,-348.7705 62.08217,-65.12284"
+       style="fill:none;fill-opacity:1;stroke:#2aff80;stroke-width:16.93333331;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+      <desc
+         id="desc906">type:door</desc>
+    </path>
     <path
        style="fill:none;fill-opacity:1;stroke:#55ddff;stroke-width:16.93333244;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 438.34797,-1674.4502 v -121.4184"
+       d="m 1463.0399,291.06808 18.3115,-116.97146"
        id="path912">
       <desc
          id="desc910">type:door</desc>
     </path>
     <path
-       id="path862"
-       d="m 930.03753,-2154.0529 v -121.4183"
-       style="fill:none;fill-opacity:1;stroke:#55ddff;stroke-width:16.93333244;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
-      <desc
-         id="desc860">type:door</desc>
-    </path>
+       id="path914"
+       d="M 255.89441,-686.49439 429.4662,-381.08501"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     <path
-       style="fill:none;fill-opacity:1;stroke:#55ddff;stroke-width:16.93333244;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 930.03753,-1674.4502 v -121.4184"
-       id="path866">
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 1102.5611,-28.211059 1470.8662,234.86499"
+       id="path916" />
+    <circle
+       r="11.641666"
+       onload=""
+       onfocusout=""
+       onfocusin=""
+       onmousemove=""
+       onmouseup=""
+       onmousedown=""
+       onmouseout=""
+       onmouseover=""
+       onclick=""
+       cy="-335.65689"
+       cx="470.73608"
+       id="0-9"
+       style="opacity:1;fill:#e9afaf;fill-opacity:1;stroke:none;stroke-width:0.26458338;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1">
       <desc
-         id="desc864">type:door;state:open</desc>
-    </path>
-    <ellipse
-       ry="16.695028"
-       rx="16.693163"
+         id="desc898-4">type:collectible</desc>
+    </circle>
+    <circle
+       r="11.641666"
+       onload=""
+       onfocusout=""
+       onfocusin=""
+       onmousemove=""
+       onmouseup=""
+       onmousedown=""
+       onmouseout=""
+       onmouseover=""
+       onclick=""
+       cy="-156.79855"
+       cx="653.29865"
+       id="circle942"
+       style="opacity:1;fill:#e9afaf;fill-opacity:1;stroke:none;stroke-width:0.26458338;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1">
+      <desc
+         id="desc940">type:collectible</desc>
+    </circle>
+    <circle
+       style="opacity:1;fill:#e9afaf;fill-opacity:1;stroke:none;stroke-width:0.26458338;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle950"
+       cx="1545.3374"
+       cy="238.33272"
+       onclick=""
+       onmouseover=""
+       onmouseout=""
+       onmousedown=""
+       onmouseup=""
+       onmousemove=""
+       onfocusin=""
+       onfocusout=""
+       onload=""
+       r="11.641666">
+      <desc
+         id="desc948">type:collectible</desc>
+    </circle>
+    <circle
+       r="11.641666"
+       onload=""
+       onfocusout=""
+       onfocusin=""
+       onmousemove=""
+       onmouseup=""
+       onmousedown=""
+       onmouseout=""
+       onmouseover=""
+       onclick=""
+       cy="40.767082"
+       cx="1931.4884"
+       id="circle954"
+       style="opacity:1;fill:#e9afaf;fill-opacity:1;stroke:none;stroke-width:0.26458338;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1">
+      <desc
+         id="desc952">type:collectible</desc>
+    </circle>
+    <circle
        style="opacity:1;fill:#2aff80;fill-opacity:1;stroke:none;stroke-width:0.26458335;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="circle871"
-       cx="863.12946"
-       cy="-1253.2726"
+       id="circle958"
+       cx="562.10803"
+       cy="-247.85997"
        onclick=""
        onmouseover=""
        onmouseout=""
@@ -152,418 +233,23 @@
        onmousemove=""
        onfocusin=""
        onfocusout=""
-       onload="">
-      <desc
-         id="desc869">type:trigger</desc>
-    </ellipse>
-    <ellipse
-       ry="16.695028"
-       rx="16.693163"
        onload=""
-       onfocusout=""
-       onfocusin=""
-       onmousemove=""
-       onmouseup=""
-       onmousedown=""
-       onmouseout=""
-       onmouseover=""
-       onclick=""
-       cy="-1732.254"
-       cx="991.41968"
-       id="0-9-3"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1">
+       r="11.641666">
       <desc
-         id="desc898-4-6">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       ry="16.695028"
-       rx="16.693163"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="circle1200"
-       cx="1107.2826"
-       cy="-1730.0184"
-       onclick=""
-       onmouseover=""
-       onmouseout=""
-       onmousedown=""
-       onmouseup=""
-       onmousemove=""
-       onfocusin=""
-       onfocusout=""
-       onload="">
-      <desc
-         id="desc1198">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       ry="16.695028"
-       rx="16.693163"
-       onload=""
-       onfocusout=""
-       onfocusin=""
-       onmousemove=""
-       onmouseup=""
-       onmousedown=""
-       onmouseout=""
-       onmouseover=""
-       onclick=""
-       cy="-2210.8999"
-       cx="991.41968"
-       id="circle1204"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1">
-      <desc
-         id="desc1202">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       ry="16.695028"
-       rx="16.693163"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="circle1208"
-       cx="1145.9427"
-       cy="-2210.8999"
-       onclick=""
-       onmouseover=""
-       onmouseout=""
-       onmousedown=""
-       onmouseup=""
-       onmousemove=""
-       onfocusin=""
-       onfocusout=""
-       onload="">
-      <desc
-         id="desc1206">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       ry="16.695028"
-       rx="16.693163"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="circle1212"
-       cx="351.86569"
-       cy="-1732.254"
-       onclick=""
-       onmouseover=""
-       onmouseout=""
-       onmousedown=""
-       onmouseup=""
-       onmousemove=""
-       onfocusin=""
-       onfocusout=""
-       onload="">
-      <desc
-         id="desc1210">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       ry="16.695028"
-       rx="16.693163"
-       onload=""
-       onfocusout=""
-       onfocusin=""
-       onmousemove=""
-       onmouseup=""
-       onmousedown=""
-       onmouseout=""
-       onmouseover=""
-       onclick=""
-       cy="-1732.254"
-       cx="120.08102"
-       id="circle1216"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1">
-      <desc
-         id="desc1214">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       ry="16.695028"
-       rx="16.693163"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="circle1220"
-       cx="612.26453"
-       cy="-1880.1946"
-       onclick=""
-       onmouseover=""
-       onmouseout=""
-       onmousedown=""
-       onmouseup=""
-       onmousemove=""
-       onfocusin=""
-       onfocusout=""
-       onload="">
-      <desc
-         id="desc1218">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       ry="16.695028"
-       rx="16.693163"
-       onload=""
-       onfocusout=""
-       onfocusin=""
-       onmousemove=""
-       onmouseup=""
-       onmousedown=""
-       onmouseout=""
-       onmouseover=""
-       onclick=""
-       cy="-1749.8414"
-       cx="487.45673"
-       id="circle1224"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1">
-      <desc
-         id="desc1222">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       ry="16.695028"
-       rx="16.693163"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="circle1236"
-       cx="663.76581"
-       cy="-1965.1648"
-       onclick=""
-       onmouseover=""
-       onmouseout=""
-       onmousedown=""
-       onmouseup=""
-       onmousemove=""
-       onfocusin=""
-       onfocusout=""
-       onload="">
-      <desc
-         id="desc1234">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       ry="16.695028"
-       rx="16.693163"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="circle1244"
-       cx="562.867"
-       cy="-1808.9535"
-       onclick=""
-       onmouseover=""
-       onmouseout=""
-       onmousedown=""
-       onmouseup=""
-       onmousemove=""
-       onfocusin=""
-       onfocusout=""
-       onload="">
-      <desc
-         id="desc1242">type:collectible</desc>
-    </ellipse>
+         id="desc956">type:trigger</desc>
+    </circle>
     <path
        style="fill:none;fill-opacity:1;stroke:#2aff80;stroke-width:16.93333244;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m -290.84887,-644.99027 -0.19302,-295.89885"
-       id="path1315">
+       d="m 644.37453,-102.30765 63.47253,-63.73152"
+       id="path846">
       <desc
-         id="desc1313">type:door;state:open</desc>
+         id="desc844">type:door;state:open</desc>
     </path>
-    <path
-       id="path1333"
-       d="m 1110.7771,-1231.6993 -65.6167,127"
-       style="fill:none;fill-opacity:1;stroke:#2aff80;stroke-width:16.93333244;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
-      <desc
-         id="desc1331">type:door</desc>
-    </path>
-    <path
-       style="fill:none;fill-opacity:1;stroke:#2aff80;stroke-width:16.93333244;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 561.27033,-2560.8044 H 807.11507"
-       id="path895">
-      <desc
-         id="desc893">type:door</desc>
-    </path>
-    <path
-       id="path899"
-       d="m 1565.8605,-2459.366 84.6666,-16.9333 46.5666,69.85 -40.2166,107.9499 -85.0427,44.2373 -58.8906,-46.3539 z"
-       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
-      <desc
-         id="desc917">type:obstacle</desc>
-    </path>
-    <ellipse
-       onload=""
-       onfocusout=""
-       onfocusin=""
-       onmousemove=""
-       onmouseup=""
-       onmousedown=""
-       onmouseout=""
-       onmouseover=""
-       onclick=""
-       cy="-980.75439"
-       cx="248.7901"
-       id="ellipse903"
-       style="opacity:1;fill:#2aff80;fill-opacity:1;stroke:none;stroke-width:0.26458335;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       rx="16.693163"
-       ry="16.695028">
-      <desc
-         id="desc901">type:trigger</desc>
-    </ellipse>
-    <ellipse
-       onload=""
-       onfocusout=""
-       onfocusin=""
-       onmousemove=""
-       onmouseup=""
-       onmousedown=""
-       onmouseout=""
-       onmouseover=""
-       onclick=""
-       cy="-1281.321"
-       cx="429.93912"
-       id="ellipse907"
-       style="opacity:1;fill:#2aff80;fill-opacity:1;stroke:none;stroke-width:0.26458335;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       rx="16.693163"
-       ry="16.695028">
-      <desc
-         id="desc905">type:trigger</desc>
-    </ellipse>
-    <path
-       style="fill:none;fill-opacity:1;stroke:#2aff80;stroke-width:16.93333244;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 338.99103,-1161.5952 186.553,-1176.8749"
-       id="path911">
-      <desc
-         id="desc909">type:door</desc>
-    </path>
-    <path
-       id="path915"
-       d="m 628.56668,-1213.0125 5.4272,-141.0941"
-       style="fill:none;fill-opacity:1;stroke:#2aff80;stroke-width:16.93333244;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
-      <desc
-         id="desc913">type:door;state:open</desc>
-    </path>
-    <ellipse
-       onload=""
-       onfocusout=""
-       onfocusin=""
-       onmousemove=""
-       onmouseup=""
-       onmousedown=""
-       onmouseout=""
-       onmouseover=""
-       onclick=""
-       cy="-2045.5981"
-       cx="714.5658"
-       id="ellipse884"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       rx="16.693163"
-       ry="16.695028">
-      <desc
-         id="desc882">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       ry="16.695028"
-       rx="16.693163"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="ellipse889"
-       cx="782.29907"
-       cy="-2128.1479"
-       onclick=""
-       onmouseover=""
-       onmouseout=""
-       onmousedown=""
-       onmouseup=""
-       onmousemove=""
-       onfocusin=""
-       onfocusout=""
-       onload="">
-      <desc
-         id="desc887">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       onload=""
-       onfocusout=""
-       onfocusin=""
-       onmousemove=""
-       onmouseup=""
-       onmousedown=""
-       onmouseout=""
-       onmouseover=""
-       onclick=""
-       cy="-2183.1814"
-       cx="860.61572"
-       id="ellipse893"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       rx="16.693163"
-       ry="16.695028">
-      <desc
-         id="desc891">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       onload=""
-       onfocusout=""
-       onfocusin=""
-       onmousemove=""
-       onmouseup=""
-       onmousedown=""
-       onmouseout=""
-       onmouseover=""
-       onclick=""
-       cy="-2308.2666"
-       cx="1734.3761"
-       id="ellipse897"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       rx="16.693163"
-       ry="16.695028">
-      <desc
-         id="desc895">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       ry="16.695028"
-       rx="16.693163"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="ellipse901"
-       cx="1493.076"
-       cy="-2433.1499"
-       onclick=""
-       onmouseover=""
-       onmouseout=""
-       onmousedown=""
-       onmouseup=""
-       onmousemove=""
-       onfocusin=""
-       onfocusout=""
-       onload="">
-      <desc
-         id="desc899">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       onload=""
-       onfocusout=""
-       onfocusin=""
-       onmousemove=""
-       onmouseup=""
-       onmousedown=""
-       onmouseout=""
-       onmouseover=""
-       onclick=""
-       cy="-1165.2666"
-       cx="1342.7928"
-       id="ellipse909"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       rx="16.693163"
-       ry="16.695028">
-      <desc
-         id="desc907">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       ry="16.695028"
-       rx="16.693163"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="ellipse913"
-       cx="-356.89047"
-       cy="-947.24994"
-       onclick=""
-       onmouseover=""
-       onmouseout=""
-       onmousedown=""
-       onmouseup=""
-       onmousemove=""
-       onfocusin=""
-       onfocusout=""
-       onload="">
-      <desc
-         id="desc911">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="ellipse917"
-       cx="-184.71898"
-       cy="-1571.3873"
+    <circle
+       style="opacity:1;fill:#e9afaf;fill-opacity:1;stroke:none;stroke-width:0.26458338;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle848"
+       cx="2074.4241"
+       cy="185.94789"
        onclick=""
        onmouseover=""
        onmouseout=""
@@ -573,162 +259,9 @@
        onfocusin=""
        onfocusout=""
        onload=""
-       rx="16.693163"
-       ry="16.695028">
+       r="11.641666">
       <desc
-         id="desc915">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       ry="16.695028"
-       rx="16.693163"
-       onload=""
-       onfocusout=""
-       onfocusin=""
-       onmousemove=""
-       onmouseup=""
-       onmousedown=""
-       onmouseout=""
-       onmouseover=""
-       onclick=""
-       cy="-1287.754"
-       cx="-351.93564"
-       id="ellipse921"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1">
-      <desc
-         id="desc919">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       ry="16.695028"
-       rx="16.693163"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="ellipse925"
-       cx="748.43237"
-       cy="-2511.2649"
-       onclick=""
-       onmouseover=""
-       onmouseout=""
-       onmousedown=""
-       onmouseup=""
-       onmousemove=""
-       onfocusin=""
-       onfocusout=""
-       onload="">
-      <desc
-         id="desc923">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       ry="16.695028"
-       rx="16.693163"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="ellipse933"
-       cx="875.43243"
-       cy="-2269.9648"
-       onclick=""
-       onmouseover=""
-       onmouseout=""
-       onmousedown=""
-       onmouseup=""
-       onmousemove=""
-       onfocusin=""
-       onfocusout=""
-       onload="">
-      <desc
-         id="desc931">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       onload=""
-       onfocusout=""
-       onfocusin=""
-       onmousemove=""
-       onmouseup=""
-       onmousedown=""
-       onmouseout=""
-       onmouseover=""
-       onclick=""
-       cy="-2348.2815"
-       cx="822.51575"
-       id="ellipse937"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       rx="16.693163"
-       ry="16.695028">
-      <desc
-         id="desc935">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       ry="16.695028"
-       rx="16.693163"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="ellipse941"
-       cx="780.18237"
-       cy="-2428.7151"
-       onclick=""
-       onmouseover=""
-       onmouseout=""
-       onmousedown=""
-       onmouseup=""
-       onmousemove=""
-       onfocusin=""
-       onfocusout=""
-       onload="">
-      <desc
-         id="desc939">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       onload=""
-       onfocusout=""
-       onfocusin=""
-       onmousemove=""
-       onmouseup=""
-       onmousedown=""
-       onmouseout=""
-       onmouseover=""
-       onclick=""
-       cy="-2024.6332"
-       cx="1408.4094"
-       id="ellipse945"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       rx="16.693163"
-       ry="16.695028">
-      <desc
-         id="desc943">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       ry="16.695028"
-       rx="16.693163"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="ellipse949"
-       cx="1376.6594"
-       cy="-2107.1831"
-       onclick=""
-       onmouseover=""
-       onmouseout=""
-       onmousedown=""
-       onmouseup=""
-       onmousemove=""
-       onfocusin=""
-       onfocusout=""
-       onload="">
-      <desc
-         id="desc947">type:collectible</desc>
-    </ellipse>
-    <ellipse
-       onload=""
-       onfocusout=""
-       onfocusin=""
-       onmousemove=""
-       onmouseup=""
-       onmousedown=""
-       onmouseout=""
-       onmouseover=""
-       onclick=""
-       cy="-2162.2166"
-       cx="1306.8094"
-       id="ellipse953"
-       style="opacity:1;fill:#a0892c;fill-opacity:1;stroke:none;stroke-width:0.26458341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       rx="16.693163"
-       ry="16.695028">
-      <desc
-         id="desc951">type:collectible</desc>
-    </ellipse>
+         id="desc846">type:collectible</desc>
+    </circle>
   </g>
 </svg>
