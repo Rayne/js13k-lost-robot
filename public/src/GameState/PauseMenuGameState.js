@@ -1,7 +1,7 @@
 import {GameState} from "./GameState.js";
 import {EVENT_LEVEL_RESTART, EVENT_QUIT} from "./MapGameState.js";
 import * as kontra from '../../../node_modules/kontra/kontra.mjs';
-import {MenuStateMachine} from "../Menu/MenuStateMachine.js";
+import {EVENT_ACTION, MenuStateMachine} from "../Menu/MenuStateMachine.js";
 
 export class PauseMenuGameState extends GameState {
     constructor(a) {
@@ -45,6 +45,9 @@ export class PauseMenuGameState extends GameState {
 
     onEnter() {
         this.html.style.display = 'block';
+
+        // Simulate an EVENT_ACTION event to play the menu sound.
+        kontra.emit(EVENT_ACTION, {success: true});
     }
 
     onResume() {

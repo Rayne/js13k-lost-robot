@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Added menu navigation sounds
+
 - Added new levels
 
 - Added a screen shake effect on collisions

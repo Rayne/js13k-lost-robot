@@ -1,5 +1,6 @@
 import * as kontra from "../../node_modules/kontra/kontra.mjs";
 import {GameStateMachine} from "./GameState/GameStateMachine.js";
+import * as MenuStateMachine from "./Menu/MenuStateMachine.js";
 import {IntroGameState} from "./GameState/IntroGameState.js";
 import {APP_CONFIG} from "./config.js";
 
@@ -39,6 +40,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let gameStateMachine = new GameStateMachine();
     gameStateMachine.pushState(new IntroGameState(gameStateMachine, context));
+
+    // Allow to close menus by pressing `ESC`.
+    // kontra.on(MenuStateMachine.EVENT_BACK, () => gameStateMachine.popState());
+
+    kontra.on(MenuStateMachine.EVENT_CURSOR_MOVE, e => {
+        if (e.success && e.from !== e.to) {
+            zzfx(.5,0,4,.3,.29,.1,.5,90.4,.06); // ZzFX 51333
+        }
+    });
+
+    kontra.on(MenuStateMachine.EVENT_ACTION, e => {
+        if (e.success) {
+            zzfx(.5,.1,100,.4,.09,0,.2,92.4,.04); // ZzFX 51333
+        }
+    });
 
     let loop = kontra.GameLoop({
         fps: 60,
