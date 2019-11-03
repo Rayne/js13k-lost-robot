@@ -105,14 +105,21 @@ export class MapGameState extends GameState {
 
         this.goal = kontra.Sprite({
             _c: 0,
+            _exitCountdown: 0,
             color: 'cyan',
             anchor: {x: 0.5, y: 0.5},
             x: this.map.goal.x - 32,
             y: this.map.goal.y - 32,
             width: 64,
             height: 64,
-            update() {
-                if (mapGameState.robot.disabled) {
+            update(dt) {
+                if (this._exitCountdown > 0) {
+                    this._exitCountdown -= dt;
+
+                    if (this._exitCountdown <= 0) {
+                        mapGameState.gameStateMachine.popState();
+                    }
+
                     // Do nothing if robot is disabled,
                     // e.g. don't trigger a goal event.
                     return;
@@ -139,11 +146,16 @@ export class MapGameState extends GameState {
                 let robotPos = mapGameState.robot.polygon.pos;
 
                 if (((this.x - robotPos.x) ** 2 + (this.y - robotPos.y) ** 2) < (64 ** 2)) {
+                    this._exitCountdown = 3;
+
                     mapGameState.robot.disabled = true;
                     mapGameState.map.timerEnabled = false;
 
                     // Horrible goal sound.
                     {
+                        // We are using timeouts for the sound effects
+                        // that aren't canceled when pausing or leaving the map.
+                        // We will ignore this for now.
                         for (let i = 0; i < 15; ++i) {
                             setTimeout(x => zzfx(.7, .1, 527, .5, .15, 10.5, 0, 0, .51 + i / 50) /* ZzFX 31991 */, i * 150);
                         }
@@ -162,8 +174,6 @@ export class MapGameState extends GameState {
                     if (time < mapTime || mapTime === 0) {
                         mapState.time = time;
                     }
-
-                    setTimeout(() => mapGameState.gameStateMachine.popState(), 3000);
                 }
             }
         });
@@ -336,7 +346,7 @@ export class MapGameState extends GameState {
             });
         }
 
-        this.goal.update();
+        this.goal.update(dt);
 
         if (this.robot.disabled) {
             this.transparency += 1 / (60 * 2); // Needs two seconds at 60 UPS.
