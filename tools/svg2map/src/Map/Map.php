@@ -144,6 +144,7 @@ class Map
         $data = [
             'start' => $this->start->toMapEntity(),
             'goal' => $this->goal->toMapEntity(),
+            'doors' => [],
         ];
 
         foreach ($this->doors as $door) {
