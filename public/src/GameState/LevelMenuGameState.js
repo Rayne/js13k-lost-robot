@@ -52,7 +52,7 @@ export class LevelMenuGameState extends GameState {
         }
 
         let levelCounter = 0;
-        let levelLimit = 4;
+        let levelLimit = maps.length;
 
         states['back'] = {
             node: this.html.querySelector('.back-button'),
