@@ -9,3 +9,37 @@ for svg in ../data/maps/*.svg; do
     echo "Convert $svg"
     ./svg2map "$svg" "${svg:0:-4}.json"
 done
+
+mapsFile=../public/src/maps.js
+
+cat << 'EOF' > "$mapsFile"
+/**
+ * Mapping pipeline:
+ *
+ * 1. Build a map in Inkscape (or another SVG program). Tag polygons as collectibles, obstacles or doors
+ *
+ * 2. Convert the SVG file to a map file with `/bin/svg2map`
+ *
+ * 3. Copy the result into the `maps` list below
+ */
+
+export let maps = [
+EOF
+
+first="true"
+
+for file in ../data/maps/*.json; do
+    echo "Add file \`$file\` to \`maps.js\`"
+
+    if [[ "$first" == true ]]; then
+        first=false
+    else
+        echo -e ',\n' >> "$mapsFile"
+    fi
+
+    echo -en "    '" >> "$mapsFile"
+    cat "$file" >> "$mapsFile"
+    echo -n \' >> "$mapsFile"
+done
+
+echo -e '\n];' >> "$mapsFile"
